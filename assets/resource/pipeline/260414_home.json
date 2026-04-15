@@ -1,6 +1,7 @@
 {
-    // 눈보라의 맹세 10연뽑 이벤트 (26년 4월 14일 기준)
+    // 설산강림 이벤트
     "260414_Reward_10roll_ticket": {
+        "focus": "▶ 설산강림 보상 시작",
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -25,14 +26,12 @@
             "param": {
                 "template": "home/260414/260414_ticket_popup.png",
                 "roi": [675, 430, 350, 100],
-                // '수령하기' 파란색 버튼 영역
                 "threshold": 0.85
             }
         },
         "action": {
             "type": "Click",
             "param": {"target": true}
-            // 기존과 다르게 버튼을 직접 클릭하도록 추가
         },
         "post_delay": 1500,
         "next": [
@@ -50,7 +49,6 @@
             "type": "Click",
             "param": {
                 "target": [555, 521, 1, 1]
-                // 물자 획득 스킵용 빈 공간 클릭
             }
         }
     },
@@ -60,7 +58,6 @@
             "param": {
                 "template": "home/260414/260414_ticket_received.png",
                 "roi": [675, 430, 350, 100],
-                // '수령 완료' 어두운 버튼 영역
                 "threshold": 0.95
             }
         },
@@ -69,7 +66,6 @@
             "type": "Click",
             "param": {
                 "target": [1251, 104, 1, 1]
-                // 팝업 바깥 우측 상단 여백을 눌러서 닫기 (기존 로직 유지)
             }
         }
     }
