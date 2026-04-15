@@ -1,0 +1,76 @@
+{
+    // 눈보라의 맹세 10연뽑 이벤트 (26년 4월 16일 기준)
+    "260416_Reward_10roll_ticket": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "home/260416/260416_ticket.png",
+                "roi": [0, 69, 163, 163],
+                "threshold": 0.95
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {"target": true}
+        },
+        "post_delay": 3000,
+        "next": [
+            "[JumpBack]260416_Popup_10roll_ticket",
+            "Home_Reward_Get_Mail_1"
+        ]
+    },
+    "260416_Popup_10roll_ticket": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "home/260416/260416_ticket_popup.png",
+                "roi": [675, 430, 350, 100],
+                // '수령하기' 파란색 버튼 영역
+                "threshold": 0.85
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {"target": true}
+            // 기존과 다르게 버튼을 직접 클릭하도록 추가
+        },
+        "post_delay": 1500,
+        "next": [
+            "260416_Ticket_Wait_Until_Received"
+        ]
+    },
+    "260416_Ticket_Wait_Until_Received": {
+        "next": [
+            "260416_Ticket_Received",
+            "[JumpBack]260416_Ticket_Tap_Until_Received"
+        ]
+    },
+    "260416_Ticket_Tap_Until_Received": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [555, 521, 1, 1]
+                // 물자 획득 스킵용 빈 공간 클릭
+            }
+        }
+    },
+    "260416_Ticket_Received": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "home/260416/260416_ticket_received.png",
+                "roi": [675, 430, 350, 100],
+                // '수령 완료' 어두운 버튼 영역
+                "threshold": 0.95
+            }
+        },
+        "post_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [1251, 104, 1, 1]
+                // 팝업 바깥 우측 상단 여백을 눌러서 닫기 (기존 로직 유지)
+            }
+        }
+    }
+}

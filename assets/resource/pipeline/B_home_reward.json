@@ -29,7 +29,8 @@
     "Home_Reward_Handle_Reward": {
         "pre_wait_freezes": 1000,
         "next": [
-            "260210_Reward_10roll_ticket",
+            //"260210_Reward_10roll_ticket",
+            "260416_Reward_10roll_ticket",
             "Home_Reward_Get_Mail_1"
         ]
     },
